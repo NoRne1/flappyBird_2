@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{E5C00A68-E6DB-FEA3-938C-F34D364EA738}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Game.cs">
+    <Files>
+      <File FileName="Assets/scripts/Game.cs" Line="117" Column="6" />
+      <File FileName="Assets/scripts/PipelineManager.cs" Line="39" Column="6" />
+      <File FileName="Assets/scripts/LifeManager.cs" Line="19" Column="6" />
+      <File FileName="Assets/scripts/Pipeline.cs" Line="17" Column="6" />
+      <File FileName="Assets/scripts/Player.cs" Line="52" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="test" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Plugins" expanded="True">
+                <Node name="UniRx" expanded="True">
+                  <Node name="Examples" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="scripts" expanded="True">
+                <Node name="Game.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>tempTransform.position</Value>
+          <Value>transform.position</Value>
+          <Value>lifes</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="197740ea-b5cd-4635-9f88-c651ae758ea5" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/norne/dev/test/Assets/scripts/Player.cs" relfile="Assets/scripts/Player.cs" line="61" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
