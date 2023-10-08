@@ -11,8 +11,6 @@ public class Unit : MonoBehaviour {
 
     public SIDE side;
 
-    public int life = 3;
-
     public Rigidbody2D rigidbodyBird;
 
     public Animator ani;
@@ -24,8 +22,6 @@ public class Unit : MonoBehaviour {
 
     public delegate void DeathNotify(Unit sender);
     public event DeathNotify OnDeath;
-
-    public UnityAction<int> OnScore;
 
     public GameObject bulletTemplate;
     public Transform firePoint;
@@ -69,10 +65,6 @@ public class Unit : MonoBehaviour {
         if (this.death)
             return;
 
-        if (!this.isFlying)
-            return;
-
-
         fireTimer += Time.deltaTime;
 
         OnUpdate();
@@ -97,7 +89,7 @@ public class Unit : MonoBehaviour {
     {
         if (fireTimer > 1f / fireRate)
         {
-            GameObject go = Instantiate(bulletTemplate);
+            GameObject go = Instantiate(bulletTemplate, BulletManager.Instance.gameObject.transform);
             go.transform.position = firePoint.position;
             go.GetComponent<Element>().direction = this.side == SIDE.PLAYER ? Vector3.right : Vector3.left;
             fireTimer = 0f;
@@ -118,11 +110,10 @@ public class Unit : MonoBehaviour {
         this.isFlying = true;
     }
 
-    public void Die()
+    public virtual void Die()
     {
         if (this.death)
             return;
-        this.life--;
         this.hp = 0;
         this.death = true;
         this.ani.SetTrigger("Die");

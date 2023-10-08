@@ -7,7 +7,7 @@ public class DelayActive : MonoBehaviour {
     public float dealy = 1;
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable() {
         StartCoroutine(Delay());	
 	}
 	

@@ -12,6 +12,7 @@ public class Enemy : Unit {
     public float lifetime = 4f;
     public Vector2 range;
     public ENEMY_TYPE enemyType;
+    public int Score;
 
     float initY = 0;
 
@@ -40,6 +41,12 @@ public class Enemy : Unit {
         this.Fire();
     }
 
+    public override void Die()
+    {
+        base.Die();
+        Game.Instance.OnScore(Score);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         Element bullet = col.gameObject.GetComponent<Element>();
@@ -51,16 +58,6 @@ public class Enemy : Unit {
         if (bullet.side == SIDE.PLAYER)
         {
             this.Die();
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        Debug.Log("Enemy:OnTriggerExit2D : " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        if (col.gameObject.name.Equals("ScoreArea"))
-        {
-            if (this.OnScore != null)
-                this.OnScore(1);
         }
     }
 }

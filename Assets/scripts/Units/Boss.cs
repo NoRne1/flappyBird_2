@@ -59,7 +59,7 @@ public class Boss : Enemy {
 
     IEnumerator UltraAttack()
     {
-        yield return MoveTo(new Vector3(5, 5, 0));
+        yield return MoveTo(new Vector3(5, 3, 0));
         yield return FireMissile();
         yield return MoveTo(new Vector3(5, 0, 0));
     }

@@ -3,13 +3,14 @@
  */
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Player : Unit
 {
     public float invincibleTime = 3f;
-
+    public float force = 100;
     private float timer = 0;
     // Update is called once per frame
     public override void OnUpdate()
@@ -20,14 +21,33 @@ public class Player : Unit
         timer += Time.deltaTime;
 
 
-        Vector2 pos = this.transform.position;
-        pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        this.transform.position = pos;
+        //Vector2 pos = this.transform.position;
+        //pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+        //pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        //this.transform.position = pos;
 
 
-        if (Input.GetButton("Fire1"))
+        //if (Input.GetButton("Fire1"))
+        //{
+        //    this.Fire();
+        //}
+        if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(1))
         {
+            if(!isFlying && Game.Instance.Status == GAME_STATUS.INGAME)
+            {
+                //游戏中却在静止状态（刚重生）
+                Fly();
+            }
+            rigidbodyBird.velocity = Vector2.zero;
+            rigidbodyBird.AddForce(new Vector2(0, force), ForceMode2D.Force);
+        }
+        if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(0))
+        {
+            if (!isFlying && Game.Instance.Status == GAME_STATUS.INGAME)
+            {
+                //游戏中却在静止状态（刚重生）
+                Fly();
+            }
             this.Fire();
         }
     }
@@ -42,8 +62,6 @@ public class Player : Unit
         yield return new WaitForSeconds(2f);
         timer = 0;
         this.Init();
-        this.Fly();
-
     }
 
     public bool IsInvincible
@@ -85,19 +103,12 @@ public class Player : Unit
         }
     }
 
-    void OnTriggerExit2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (this.death)
-            return;
-
-        if (this.IsInvincible)
-            return;
-
-        Debug.Log("Player:OnTriggerExit2D : " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        if (col.gameObject.name.Equals("ScoreArea"))
+        if (col.gameObject.name.Equals("GroundBoundary"))
         {
-            if (this.OnScore != null)
-                this.OnScore(1);
+            this.Damage(Game.Instance.boundaryDamage);
+            rigidbodyBird.AddForce(new Vector2(0, force), ForceMode2D.Force);
         }
     }
 }

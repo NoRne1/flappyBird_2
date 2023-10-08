@@ -348,6 +348,7 @@
 -r:"Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/Assembly-CSharp.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/PsdPlugin.ref.dll"
+-r:"Library/Bee/artifacts/900b0aEDbg.dag/UniRx.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/Unity.2D.Animation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/Unity.2D.Animation.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/900b0aEDbg.dag/Unity.2D.Aseprite.Common.ref.dll"

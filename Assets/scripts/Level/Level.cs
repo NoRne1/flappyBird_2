@@ -53,7 +53,7 @@ public class Level : MonoBehaviour {
 
         for (int i = 0; i < Rules.Count; i++)
         {
-            SpawnRule rule = Instantiate<SpawnRule>(Rules[i]);
+            SpawnRule rule = Instantiate<SpawnRule>(Rules[i], this.transform);
         }
 
     }

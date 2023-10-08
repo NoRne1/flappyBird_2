@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +15,12 @@ public class UIManager : MonoSingleton<UIManager>
 
     public Slider hpbar;
 
-    public Text uiLife;
     public Text uiLevelName;
     public Text uiLevelStartName;
+
+    public Text scoreTextInGame;
+    public TextMeshProUGUI scoreTextGameOver;
+    public TextMeshProUGUI topScoreTextGameOver;
 
     public GameObject uiLevelStart;
     public GameObject uiLevelEnd;
@@ -23,13 +28,17 @@ public class UIManager : MonoSingleton<UIManager>
     // Use this for initialization
     void Start () {
         uiReady.SetActive(true);
-        
-    }
-
-
-    public void UpdateLift(int score)
-    {
-        this.uiLife.text = score.ToString();
+        Game.Instance.CurrentScore.AsObservable().DistinctUntilChanged<int>()
+            .Subscribe(score =>
+            {
+                scoreTextInGame.text = score.ToString();
+                scoreTextGameOver.text = score.ToString();
+            });
+        Game.Instance.TopScore.AsObservable().DistinctUntilChanged<int>()
+            .Subscribe(score =>
+            {
+                topScoreTextGameOver.text = score.ToString();
+            });
     }
 
     public void ShowLevelStart(string name)
@@ -43,8 +52,6 @@ public class UIManager : MonoSingleton<UIManager>
 	// Update is called once per frame
 	void Update () {
         this.hpbar.value = Mathf.Lerp(this.hpbar.value, Game.Instance.player.HP, 0.1f);
-        if (Game.Instance.player != null)
-            this.uiLife.text = Game.Instance.player.life.ToString();
     }
 
     public void UpdateUI()
