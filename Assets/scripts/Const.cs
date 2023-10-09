@@ -1,8 +1,4 @@
-﻿/*
- Create By Ray : ray@raymix.net @ 极视教育
- */
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 
 

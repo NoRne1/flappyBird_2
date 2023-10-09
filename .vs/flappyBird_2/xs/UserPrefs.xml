@@ -1,36 +1,41 @@
 ﻿<Properties StartupConfiguration="{AC54A54F-B8F1-1E95-EA6F-CD5C80D44F3D}|">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="74b04f78-6baa-479e-8ecd-026f605d56bc" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game.cs">
     <Files>
-      <File FileName="Assets/Scripts/Manager/LifeManager.cs" Line="21" Column="31" />
+      <File FileName="Assets/Scripts/Manager/LifeManager.cs" />
       <File FileName="Assets/Scripts/Manager/LevelManager.cs" />
-      <File FileName="Assets/Scripts/Game.cs" Line="49" Column="22" />
+      <File FileName="Assets/Scripts/Game.cs" Line="35" Column="20" />
+      <File FileName="Assets/Scripts/Units/Player.cs" />
+      <File FileName="Assets/Scripts/Manager/UIManager.cs" />
+      <File FileName="Assets/Scripts/Units/Enemy.cs" />
       <File FileName="Assets/Scripts/Units/Unit.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="flappyBird_2" expanded="True">
+          <Node name="flappyBird_2">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Manager" expanded="True">
-                  <Node name="LifeManager.cs" selected="True" />
+              <Node name="Plugins" expanded="True">
+                <Node name="UniRx" expanded="True">
+                  <Node name="Scripts" expanded="True" />
                 </Node>
+              </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="Level" expanded="True" />
+                <Node name="Manager" expanded="True" />
                 <Node name="Units" expanded="True" />
+                <Node name="Game.cs" selected="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="021a39fd-cda3-4f3f-917c-fde2e331d3e0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
 </Properties>

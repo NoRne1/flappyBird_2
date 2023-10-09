@@ -1,8 +1,4 @@
-﻿/*
- Create By Ray : ray@raymix.net @ 极视教育
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -12,9 +8,10 @@ using UniRx;
 public class Game : MonoSingleton<Game>
 {
     public Player player;
-    public int currentLevelId = 1;
     public float boundaryDamage;
 
+    public BehaviorSubject<int> Coins = new BehaviorSubject<int>(0);
+    public BehaviorSubject<int> Diamonds;
     public BehaviorSubject<int> CurrentScore = new BehaviorSubject<int>(0);
     public BehaviorSubject<int> TopScore;
     GAME_STATUS status;
@@ -29,6 +26,7 @@ public class Game : MonoSingleton<Game>
     }
     private void Awake()
     {
+        Diamonds = new BehaviorSubject<int>(PlayerPrefs.GetInt("Diamonds", 0));
         TopScore = new BehaviorSubject<int>(PlayerPrefs.GetInt("TopScore", 0));
     }
     // Use this for initialization
@@ -47,38 +45,21 @@ public class Game : MonoSingleton<Game>
         {
             this.Status = GAME_STATUS.OVER;
             UnitManager.Instance.Clear();
+            LevelManager.Instance.DestroyLevel();
         }
     }
 
 
     public void StartGame()
     {
+        Coins.OnNext(0);
         CurrentScore.OnNext(0);
         InitPlayer();
         LifeManager.Instance.Init();
         this.Status = GAME_STATUS.INGAME;
         Debug.LogFormat("StartGame:{0}", this.status);
         //player.Fly();
-        LoadLevel();
-    }
-
-    private void LoadLevel()
-    {
-        LevelManager.Instance.LoadLevel(this.currentLevelId);
-        LevelManager.Instance.level.OnLevelEnd = OnLevelEnd;
-    }
-
-    void OnLevelEnd(Level.LEVEL_RESULT result)
-    {
-        if(result == Level.LEVEL_RESULT.SUCCESS)
-        {
-            this.currentLevelId++;
-            this.LoadLevel();
-        }
-        else
-        {
-            this.Status = GAME_STATUS.OVER;
-        }
+        LevelManager.Instance.LoadLevel(1);
     }
 
     public void Restart()
@@ -101,5 +82,18 @@ public class Game : MonoSingleton<Game>
             TopScore.OnNext(CurrentScore.Value);
         }
         PlayerPrefs.SetInt("TopScore", TopScore.Value);
+    }
+
+    public void EarnCoins(int coins)
+    {
+        Coins.OnNext(Coins.Value + coins);
+        Debug.LogFormat("EarnCoins! Total Coins:{0}", Coins.Value);
+    }
+
+    public void EarnDiamonds(int diamonds)
+    {
+        Diamonds.OnNext(Diamonds.Value + diamonds);
+        PlayerPrefs.SetInt("Diamonds", Diamonds.Value);
+        Debug.LogFormat("EarnDiamonds! Total Diamonds:{0}", Diamonds.Value);
     }
 }

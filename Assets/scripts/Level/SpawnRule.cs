@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnRule : MonoBehaviour {
-
-
     public Unit Monster;
     public float InitTime;
     public float Period;
@@ -21,15 +20,16 @@ public class SpawnRule : MonoBehaviour {
     int num = 0;
     float timer = 0;
 
-    public ItemDropRule dropRule;
-
-    ItemDropRule rule;
+    public List<ItemDropRuleStruct> RuleStructs = new List<ItemDropRuleStruct>();
+    private List<ItemDropRule> Rules = new List<ItemDropRule>();
 
     // Use this for initialization
     void Start () {
         this.levelStartTime = Time.realtimeSinceStartup;
-        if (dropRule != null)
-            rule = Instantiate<ItemDropRule>(dropRule);
+        for (int i = 0; i < RuleStructs.Count; i++)
+        {
+            Rules.Add(new ItemDropRule(RuleStructs[i]));
+        }
     }
 	
 
@@ -59,7 +59,9 @@ public class SpawnRule : MonoBehaviour {
 
     private void Enemy_OnDeath(Unit sender)
     {
-        if (rule != null)
-            rule.Execute(sender.transform.position);
+        for (int i = 0; i < Rules.Count; i++)
+        {
+            Rules[i].Execute(sender.transform.position);
+        }
     }
 }

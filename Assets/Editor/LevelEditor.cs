@@ -9,7 +9,6 @@ public class LevelEditor : Editor
 {
     Level level;
 
-
     Vector2 scrollPos;
     public override void OnInspectorGUI()
     {
@@ -25,7 +24,7 @@ public class LevelEditor : Editor
         GUILayout.BeginVertical();
         for (int i = 0; i < level.Rules.Count; i++)
         {
-            EditorGUILayout.ObjectField(level.Rules[i].Monster, typeof(Unit));
+            EditorGUILayout.ObjectField(level.Rules[i].Monster, typeof(Unit), true);
         }
         GUILayout.EndVertical();
 

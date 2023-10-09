@@ -1,8 +1,4 @@
-﻿/*
- Create By Ray : ray@raymix.net @ 极视教育
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,10 +32,10 @@ public class Boss : Enemy {
     {
         this.transform.position = new Vector3(15, 0, 0);
         yield return MoveTo(new Vector3(5, 0, 0));
-        yield return Attack();
+        yield return NormalAttack();
     }
 
-    IEnumerator Attack()
+    IEnumerator NormalAttack()
     {
         while(true)
         {

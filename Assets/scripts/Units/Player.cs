@@ -1,7 +1,4 @@
-﻿/*
- Create By Ray : ray@raymix.net @ 极视教育
- */
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -77,12 +74,6 @@ public class Player : Unit
 
         if (this.IsInvincible)
             return;
-
-        Item item = col.gameObject.GetComponent<Item>();
-        if (item != null)
-        {
-            item.Use(this);
-        }
 
         Element bullet = col.gameObject.GetComponent<Element>();
         Enemy enemy = col.gameObject.GetComponent<Enemy>();
