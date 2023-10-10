@@ -87,6 +87,7 @@ public class Boss : Enemy {
             GameObject go = Instantiate(bulletTemplate, firePoint2.position, battery.rotation);
             Element bullent = go.GetComponent<Element>();
             bullent.direction = (target.transform.position - firePoint2.position).normalized;
+            bullent.source = this;
             fireTimer2 = 0f;
         }
     }
@@ -97,6 +98,7 @@ public class Boss : Enemy {
         GameObject go = Instantiate(missileTemplate, firePoint3);
         missile = go.GetComponent<Missile>();
         missile.target = this.target.transform;
+        missile.source = this;
     }
 
     public void OnMissileLaunch()
@@ -134,7 +136,7 @@ public class Boss : Enemy {
         Debug.Log("Enemy:OnTriggerEnter2D : " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if (bullet.side == SIDE.PLAYER)
         {
-            this.Damage(bullet.power);
+            this.Damage(bullet);
         }
     }
 }

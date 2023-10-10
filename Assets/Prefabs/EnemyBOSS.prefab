@@ -655,13 +655,18 @@ MonoBehaviour:
   fireRate: 1
   bulletTemplate: {fileID: 1217383807968316, guid: a1b080190355ae04dbe145f6377cf867, type: 3}
   firePoint: {fileID: 4165252303884804}
+  hp: 1000
   MaxHP: 1000
-  Attack: 0
+  attack: 100
+  armor: 100
+  agile: 20
+  hematophagia: 0
   desoryOnDeath: 1
   lifetime: 99999
   range: {x: 0, y: 0}
   enemyType: 2
   Score: 10
+  initY: 0
   missileTemplate: {fileID: 1315178362565290, guid: 4fac37320fa89d84e8d5ef5b857b9e5b, type: 3}
   firePoint2: {fileID: 4596971001395790}
   firePoint3: {fileID: 4848335440624846}

@@ -46,7 +46,7 @@ public class Missile : Element {
         if(target!=null)
         {
             Player p = target.GetComponent<Player>();
-            p.Damage(power);
+            p.Damage(this);
         }
     }
 }

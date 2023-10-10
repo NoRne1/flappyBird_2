@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnRule : MonoBehaviour {
+    public delegate void DestroyNotify();
+    public event DestroyNotify DestroyedNotify;
+
     public Unit Monster;
     public float InitTime;
     public float Period;
     public int MaxNum;
 
     public int HP;
-    public int Attack;
+    //伤害
+    public float attack;
+    //护甲
+    public float armor;
+    //敏捷
+    public float agile;
+    //吸血
+    public float hematophagia;
 
 
     float timeSinceLevelStart = 0;
@@ -50,8 +61,12 @@ public class SpawnRule : MonoBehaviour {
                 timer = 0;
                 Enemy enemy = UnitManager.Instance.CreateEnemy(this.Monster.gameObject);
                 enemy.MaxHP = this.HP;
-                enemy.Attack = this.Attack;
+                enemy.attack = this.attack;
+                enemy.armor = this.armor;
+                enemy.agile = this.agile;
+                enemy.hematophagia = this.hematophagia;
                 enemy.OnDeath += Enemy_OnDeath;
+                DestroyedNotify += enemy.OnDestroyed;
                 num++;
             }
         }
@@ -63,5 +78,10 @@ public class SpawnRule : MonoBehaviour {
         {
             Rules[i].Execute(sender.transform.position);
         }
+    }
+
+    public void OnDestroyed()
+    {
+        this.DestroyedNotify();
     }
 }

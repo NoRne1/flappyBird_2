@@ -46,10 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster: {fileID: 114344718878899206, guid: 9603c5647c47ab143a37eb8e1ac8671b, type: 3}
   InitTime: 3
-  Period: 3
-  MaxNum: 20
-  HP: 1
-  Attack: 1
+  Period: 1
+  MaxNum: 50
+  HP: 10
+  attack: 10
+  armor: 0
+  agile: 0
+  hematophagia: 0
   RuleStructs:
   - item: {fileID: 114368492159166890, guid: fb70d9b9a31fae94bba1199df5a40f82, type: 3}
     itemSpacing: 0.5

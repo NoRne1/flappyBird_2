@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Element : MonoBehaviour {
 
+    public Unit source;
+
     public float speed;
 
     public Vector3 direction = Vector3.zero;

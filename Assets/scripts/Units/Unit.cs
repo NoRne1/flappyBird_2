@@ -26,16 +26,24 @@ public class Unit : MonoBehaviour {
 
     protected bool isFlying = false;
 
-    private float hp = 1000f;
+    //血量
+    private float hp = 100f;
 
     public float HP
     {
         get { return this.hp; }
     }
 
-    public float MaxHP = 1000f;
+    public float MaxHP = 100f;
 
-    public float Attack;
+    //伤害
+    public float attack;
+    //护甲
+    public float armor;
+    //敏捷
+    public float agile;
+    //吸血
+    public float hematophagia;
 
     float fireTimer = 0;
 
@@ -87,7 +95,9 @@ public class Unit : MonoBehaviour {
         {
             GameObject go = Instantiate(bulletTemplate, BulletManager.Instance.gameObject.transform);
             go.transform.position = firePoint.position;
-            go.GetComponent<Element>().direction = this.side == SIDE.PLAYER ? Vector3.right : Vector3.left;
+            Element ele = go.GetComponent<Element>();
+            ele.direction = this.side == SIDE.PLAYER ? Vector3.right : Vector3.left;
+            ele.source = this;
             fireTimer = 0f;
         }
     }
@@ -123,10 +133,17 @@ public class Unit : MonoBehaviour {
     }
 
 
-    public void Damage(float power)
+    public void Damage(Element bullet)
     {
-        Debug.Log("Unit:Damage power:" + power );
-        this.hp -= power;
+        this.hp -= GameUtil.Instance.CalcDamage(bullet.power, this.agile, bullet.source.attack, this.armor);
+
+        if (this.HP <= 0)
+            this.Die();
+    }
+
+    public void Damage(float damage)
+    {
+        this.hp -= damage;
 
         if (this.HP <= 0)
             this.Die();

@@ -9,8 +9,7 @@ public class Enemy : Unit {
     public Vector2 range;
     public ENEMY_TYPE enemyType;
     public int Score;
-
-    float initY = 0;
+    public float initY = 0;
 
     // Use this for initialization
     public override void OnStart() {
@@ -53,7 +52,15 @@ public class Enemy : Unit {
         Debug.Log("Enemy:OnTriggerEnter2D : " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if (bullet.side == SIDE.PLAYER)
         {
-            this.Die();
+            this.Damage(bullet);
+        }
+    }
+
+    public void OnDestroyed()
+    {
+        if (this != null)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

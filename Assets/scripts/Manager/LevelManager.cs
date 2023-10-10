@@ -25,7 +25,7 @@ public class LevelManager : MonoSingleton<LevelManager>
     public void DestroyLevel() {
         if (level != null)
         {
-            Destroy(level.gameObject);
+            level.OnDestroyed();
             level = null;
         }
     }

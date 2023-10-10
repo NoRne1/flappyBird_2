@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 class GameUtil : Singleton<GameUtil>
@@ -10,5 +6,16 @@ class GameUtil : Singleton<GameUtil>
     public bool InScreen(Vector3 position)
     {
         return Screen.safeArea.Contains(Camera.main.WorldToScreenPoint(position));
+    }
+
+    public float CalcDamage(float power, float agile, float attack, float armor)
+    {
+        if (Random.Range(0f, 100f) < agile)
+        {
+            return 0;
+        } else
+        {
+            return power * (1f + attack / 100f) * (1 - (armor * 0.05f / (1f + armor * 0.05f)));
+        }
     }
 }

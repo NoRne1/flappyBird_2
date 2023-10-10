@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ public class Level : MonoBehaviour {
     public Boss Boss;
 
     public List<SpawnRule> Rules = new List<SpawnRule>();
+    private List<SpawnRule> InstantiatedRules = new List<SpawnRule>();
 
     float timeSinceLevelStart = 0;
 
@@ -37,7 +39,7 @@ public class Level : MonoBehaviour {
 
         for (int i = 0; i < Rules.Count; i++)
         {
-            SpawnRule rule = Instantiate<SpawnRule>(Rules[i], this.transform);
+            InstantiatedRules.Add(Instantiate<SpawnRule>(Rules[i], this.transform));
         }
     }
 	
@@ -59,5 +61,18 @@ public class Level : MonoBehaviour {
     private void Boss_OnDeath(Unit sender)
     {
         LevelManager.Instance.nextLevel();
+    }
+
+    public void OnDestroyed()
+    {
+        for (int i = 0; i < InstantiatedRules.Count; i++)
+        {
+            InstantiatedRules[i].OnDestroyed();
+        }
+        if (boss != null)
+        {
+            Destroy(boss.gameObject);
+        }
+        Destroy(this.gameObject);
     }
 }

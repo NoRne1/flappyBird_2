@@ -7,16 +7,21 @@ using UnityEngine.Events;
 public class Player : Unit
 {
     public float invincibleTime = 3f;
+    //力量
     public float force = 100;
-    private float timer = 0;
+    //飞行频率
+    public float flyRate = 2;
+    
+    private float invincibleTimer = 0;
+    private float flyTimer = 0;
     // Update is called once per frame
     public override void OnUpdate()
     {
         if (this.death)
             return;
 
-        timer += Time.deltaTime;
-
+        invincibleTimer += Time.deltaTime;
+        flyTimer += Time.deltaTime;
 
         //Vector2 pos = this.transform.position;
         //pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
@@ -28,7 +33,7 @@ public class Player : Unit
         //{
         //    this.Fire();
         //}
-        if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(1))
+        if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(1) && flyTimer > 1f / flyRate)
         {
             if(!isFlying && Game.Instance.Status == GAME_STATUS.INGAME)
             {
@@ -37,6 +42,7 @@ public class Player : Unit
             }
             rigidbodyBird.velocity = Vector2.zero;
             rigidbodyBird.AddForce(new Vector2(0, force), ForceMode2D.Force);
+            flyTimer = 0;
         }
         if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(0))
         {
@@ -57,13 +63,13 @@ public class Player : Unit
     IEnumerator DoRebirth()
     {
         yield return new WaitForSeconds(2f);
-        timer = 0;
+        invincibleTimer = 0;
         this.Init();
     }
 
     public bool IsInvincible
     {
-        get { return timer < this.invincibleTime; }
+        get { return invincibleTimer < this.invincibleTime; }
     }
 
 
@@ -86,7 +92,7 @@ public class Player : Unit
 
         if (bullet != null && bullet.side == SIDE.ENEMY)
         {
-            this.Damage(bullet.power);
+            this.Damage(bullet);
         }
         if (enemy != null)
         {
