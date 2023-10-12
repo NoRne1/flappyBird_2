@@ -44,6 +44,8 @@ public class Enemy : Unit {
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (this.death)
+            return;
         Element bullet = col.gameObject.GetComponent<Element>();
         if (bullet == null)
         {
@@ -60,7 +62,8 @@ public class Enemy : Unit {
     {
         if (this != null)
         {
-            Destroy(this.gameObject);
+            //死亡但不计分
+            base.Die();
         }
     }
 }

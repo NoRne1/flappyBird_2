@@ -51,4 +51,4 @@ MonoBehaviour:
   - {fileID: 114237319175723398, guid: 7cfe09841db66ae4aa3818fe00e38ab4, type: 3}
   - {fileID: 114237319175723398, guid: 7b3deb9dfbccce54a98630c8ca3bfb85, type: 3}
   - {fileID: 114237319175723398, guid: 769d2d8ed8b48fa4e84961e24d216698, type: 3}
-  bossTime: 10
+  bossTime: 20

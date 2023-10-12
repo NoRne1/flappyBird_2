@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class Unit : MonoBehaviour {
-
+    public FightTextManager fightTextManager;
     public SIDE side;
 
     public Rigidbody2D rigidbodyBird;
@@ -51,6 +51,8 @@ public class Unit : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        this.fightTextManager = this.GetComponent<FightTextManager>();
+        fightTextManager.FightTextCanvas = GameObject.FindWithTag("FightTextCanvas").transform;
         this.ani = this.GetComponent<Animator>();
         this.Idle();
         initPos = this.transform.position;
@@ -129,22 +131,19 @@ public class Unit : MonoBehaviour {
         }
 
         if (desoryOnDeath)
-            Destroy(this.gameObject, 0.2f);
+            Destroy(this.gameObject, 0.5f);
     }
 
 
     public void Damage(Element bullet)
     {
-        this.hp -= GameUtil.Instance.CalcDamage(bullet.power, this.agile, bullet.source.attack, this.armor);
-
-        if (this.HP <= 0)
-            this.Die();
+        this.Damage(GameUtil.Instance.CalcDamage(bullet.power, this.agile, bullet.source.attack, this.armor));
     }
 
-    public void Damage(float damage)
+    public void Damage(int damage)
     {
         this.hp -= damage;
-
+        fightTextManager.CreatFightText("-" + damage.ToString(), TextAnimationType.Burst, TextMoveType.RightParabola, transform);
         if (this.HP <= 0)
             this.Die();
     }
@@ -152,6 +151,7 @@ public class Unit : MonoBehaviour {
     public void AddHP(int hp)
     {
         this.hp += hp;
+        fightTextManager.CreatFightText("+" + hp.ToString(), TextAnimationType.Normal, TextMoveType.RightParabola, transform);
         if (this.hp > MaxHP)
             this.hp = MaxHP;
     }

@@ -128,6 +128,8 @@ public class Boss : Enemy {
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (this.death)
+            return;
         Element bullet = col.gameObject.GetComponent<Element>();
         if (bullet == null)
         {

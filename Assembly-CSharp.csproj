@@ -65,6 +65,7 @@
     <Compile Include="Assets/Scripts/Units/Enemy.cs" />
     <Compile Include="Assets/Scripts/Units/Boss.cs" />
     <Compile Include="Assets/Scripts/Manager/UnitManager.cs" />
+    <Compile Include="Assets/Scripts/Utilities/FightText/FightTextInfo.cs" />
     <Compile Include="Assets/Scripts/Game.cs" />
     <Compile Include="Assets/Scripts/Level/ItemDropRule.cs" />
     <Compile Include="Assets/Scripts/Manager/LifeManager.cs" />
@@ -72,9 +73,11 @@
     <Compile Include="Assets/Scripts/Units/Element.cs" />
     <Compile Include="Assets/Scripts/Utilities/GameUtil.cs" />
     <Compile Include="Assets/Scripts/Manager/LevelManager.cs" />
+    <Compile Include="Assets/Scripts/Utilities/FightText/FightTextManager.cs" />
     <Compile Include="Assets/Scripts/Level/SpawnRule.cs" />
     <Compile Include="Assets/Scripts/Level/Item.cs" />
     <Compile Include="Assets/Scripts/DelayActive.cs" />
+    <Compile Include="Assets/Scripts/Utilities/FightText/FightTextComponent.cs" />
     <Compile Include="Assets/Scripts/Units/Missile.cs" />
     <Compile Include="Assets/Scripts/Utilities/MonoSingleton.cs" />
     <Compile Include="Assets/Scripts/Const.cs" />

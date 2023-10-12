@@ -8,7 +8,7 @@ using UniRx;
 public class Game : MonoSingleton<Game>
 {
     public Player player;
-    public float boundaryDamage;
+    public int boundaryDamage;
 
     public BehaviorSubject<int> Coins = new BehaviorSubject<int>(0);
     public BehaviorSubject<int> Diamonds;

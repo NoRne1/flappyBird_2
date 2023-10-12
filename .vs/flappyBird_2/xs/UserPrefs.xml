@@ -1,32 +1,39 @@
 ﻿<Properties StartupConfiguration="{AC54A54F-B8F1-1E95-EA6F-CD5C80D44F3D}|">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f73f685d-a69a-4203-a9fc-231a4dc953d5" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level/Level.cs">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7abc046c-a070-4298-b3f3-0c6cf4e91228" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/norne/dev/flappyBird_2/Assets/Scripts/Units/Enemy.cs" relfile="Assets/Scripts/Units/Enemy.cs" line="55" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Units/Boss.cs">
     <Files>
-      <File FileName="Assets/Scripts/Level/SpawnRule.cs" Line="28" Column="57" />
-      <File FileName="Assets/Scripts/Level/ItemDropRule.cs" Line="32" Column="30" />
-      <File FileName="Assets/Scripts/Level/Level.cs" Line="47" Column="44" />
-      <File FileName="Assets/Scripts/Level/Item.cs" Line="38" Column="10" />
-      <File FileName="Assets/Scripts/Units/Boss.cs" Line="15" Column="5" />
-      <File FileName="Assets/Scripts/Units/Unit.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Units/Player.cs" Line="76" Column="20" />
-      <File FileName="Assets/Scripts/Game.cs" Line="62" Column="42" />
-      <File FileName="Assets/Scripts/Manager/LevelManager.cs" Line="28" Column="39" />
+      <File FileName="Assets/Scripts/Units/Player.cs" Line="95" Column="22" />
+      <File FileName="Assets/Scripts/Units/Enemy.cs" />
+      <File FileName="Assets/Scripts/Units/Unit.cs" Line="144" Column="139" />
+      <File FileName="Assets/Scripts/Units/Element.cs" />
+      <File FileName="Assets/Scripts/Utilities/GameUtil.cs" Line="20" Column="6" />
+      <File FileName="Assets/Scripts/Level/ItemDropRule.cs" />
+      <File FileName="Assets/Scripts/Units/Boss.cs" Line="124" Column="116" />
+      <File FileName="Assets/Scripts/Units/Missile.cs" />
+      <File FileName="Assets/Scripts/Level/SpawnRule.cs" />
+      <File FileName="Assets/Scripts/Level/Level.cs" />
+      <File FileName="Assets/Scripts/Utilities/DamageText/ShootTextComponent.cs" Line="5" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="flappyBird_2">
+          <Node name="flappyBird_2" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Editor" expanded="True" />
               <Node name="Scenes" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Level" expanded="True" />
                 <Node name="Manager" expanded="True" />
-                <Node name="Units" expanded="True" />
+                <Node name="Units" expanded="True">
+                  <Node name="Boss.cs" selected="True" />
+                </Node>
                 <Node name="Utilities" expanded="True" />
               </Node>
             </Node>
@@ -36,5 +43,4 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
