@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour {
     public FightTextManager fightTextManager;
@@ -36,6 +37,8 @@ public class Unit : MonoBehaviour {
 
     public float MaxHP = 100f;
 
+    public Slider hpbar = null;
+
     //伤害
     public float attack;
     //护甲
@@ -44,6 +47,8 @@ public class Unit : MonoBehaviour {
     public float agile;
     //吸血
     public float hematophagia;
+    //吸血数值
+    public int hematophagiaValue = 5;
 
     float fireTimer = 0;
 
@@ -67,7 +72,11 @@ public class Unit : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
+        if (hpbar != null)
+        {
+            this.hpbar.value = Mathf.Lerp(this.hpbar.value, hp, 0.1f);
+        }
+        
         if (this.death)
             return;
 
@@ -89,6 +98,11 @@ public class Unit : MonoBehaviour {
         this.Idle();
         this.death = false;
         this.hp = this.MaxHP;
+        if (hpbar != null)
+        {
+            this.hpbar.maxValue = this.MaxHP;
+            this.hpbar.value = this.MaxHP;
+        }
     }
 
     public void Fire()
@@ -138,6 +152,7 @@ public class Unit : MonoBehaviour {
     public void Damage(Element bullet)
     {
         this.Damage(GameUtil.Instance.CalcDamage(bullet.power, this.agile, bullet.source.attack, this.armor));
+        bullet.source.InvokeHematophagia();
     }
 
     public void Damage(int damage)
@@ -146,6 +161,14 @@ public class Unit : MonoBehaviour {
         fightTextManager.CreatFightText("-" + damage.ToString(), TextAnimationType.Burst, TextMoveType.RightParabola, transform);
         if (this.HP <= 0)
             this.Die();
+    }
+
+    public void InvokeHematophagia()
+    {
+        if (Random.Range(0f, 100f) < hematophagia)
+        {
+            AddHP(hematophagiaValue);
+        }
     }
 
     public void AddHP(int hp)

@@ -50,16 +50,14 @@ public class UIManager : MonoSingleton<UIManager>
     }
 	
 	// Update is called once per frame
-	void Update () {
-        this.hpbar.value = Mathf.Lerp(this.hpbar.value, Game.Instance.player.HP, 0.1f);
-    }
+	//void Update () {
+ //       this.hpbar.value = Mathf.Lerp(this.hpbar.value, Game.Instance.player.HP, 0.1f);
+ //   }
 
     public void UpdateUI()
     {
         uiReady.SetActive(Game.Instance.Status == GAME_STATUS.READY);
         uiInGame.SetActive(Game.Instance.Status == GAME_STATUS.INGAME);
         uiGameOver.SetActive(Game.Instance.Status == GAME_STATUS.OVER);
-        this.hpbar.maxValue = Game.Instance.player.MaxHP;
-        this.hpbar.value = Game.Instance.player.HP;
     }
 }
