@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Player : Unit
 {
@@ -52,6 +53,14 @@ public class Player : Unit
                 Fly();
             }
             this.Fire();
+        }
+    }
+
+    public override void OnInit()
+    {
+        if (hpbar == null)
+        {
+            hpbar = GameObject.FindWithTag("PlayerHpBar")?.GetComponent<Slider>();
         }
     }
 

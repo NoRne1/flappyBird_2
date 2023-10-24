@@ -21,10 +21,16 @@ public enum ENEMY_TYPE
 
 }
 
-
 public enum GAME_STATUS
 {
     READY,
     INGAME,
     OVER
+}
+
+public enum PLAYER_INDEX
+{
+    Player = 0,
+    Player2 = 1,
+    Player3 = 2,
 }

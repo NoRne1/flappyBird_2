@@ -7,7 +7,16 @@ using UniRx;
 
 public class Game : MonoSingleton<Game>
 {
-    public Player player;
+    public Player Player
+    {
+        get { return player; }
+        set
+        {
+            this.player = value;
+            this.player.OnDeath += Player_OnDeath;
+        }
+    }
+    private Player player;
     public int boundaryDamage;
 
     public BehaviorSubject<int> Coins = new BehaviorSubject<int>(0);
@@ -32,7 +41,6 @@ public class Game : MonoSingleton<Game>
     // Use this for initialization
     void Start () {
         this.Status = GAME_STATUS.READY;
-        this.player.OnDeath += Player_OnDeath;
     }
 
     private void Player_OnDeath(Unit sender)
@@ -54,12 +62,11 @@ public class Game : MonoSingleton<Game>
     {
         Coins.OnNext(0);
         CurrentScore.OnNext(0);
-        InitPlayer();
         LifeManager.Instance.Init();
         this.Status = GAME_STATUS.INGAME;
         Debug.LogFormat("StartGame:{0}", this.status);
-        //player.Fly();
         LevelManager.Instance.LoadLevel(1);
+        InitPlayer();
     }
 
     public void Restart()

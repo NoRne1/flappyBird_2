@@ -51,7 +51,7 @@ public class Level : MonoBehaviour {
             if (boss == null)
             {
                 boss = (Boss)UnitManager.Instance.CreateEnemy(this.Boss.gameObject);
-                boss.target = Game.Instance.player;
+                boss.target = Game.Instance.Player;
                 boss.Fly();
                 boss.OnDeath += Boss_OnDeath;
             }

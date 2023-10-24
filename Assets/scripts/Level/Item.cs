@@ -12,7 +12,7 @@ public class Item : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 dir = (Game.Instance.player.transform.position - transform.position).normalized;
+        Vector3 dir = (Game.Instance.Player.transform.position - transform.position).normalized;
         this.transform.position += dir * speed * Time.deltaTime;
 	}
 

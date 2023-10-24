@@ -57,7 +57,10 @@ public class Unit : MonoBehaviour {
     // Use this for initialization
     void Start() {
         this.fightTextManager = this.GetComponent<FightTextManager>();
-        fightTextManager.FightTextCanvas = GameObject.FindWithTag("FightTextCanvas").transform;
+        if (fightTextManager != null)
+        {
+            fightTextManager.FightTextCanvas = GameObject.FindWithTag("FightTextCanvas").transform;
+        }
         this.ani = this.GetComponent<Animator>();
         this.Idle();
         initPos = this.transform.position;
@@ -98,11 +101,17 @@ public class Unit : MonoBehaviour {
         this.Idle();
         this.death = false;
         this.hp = this.MaxHP;
+        OnInit();
         if (hpbar != null)
         {
             this.hpbar.maxValue = this.MaxHP;
             this.hpbar.value = this.MaxHP;
         }
+    }
+
+    public virtual void OnInit()
+    {
+
     }
 
     public void Fire()

@@ -1,43 +1,34 @@
 ﻿<Properties StartupConfiguration="{AC54A54F-B8F1-1E95-EA6F-CD5C80D44F3D}|">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/norne/dev/flappyBird_2/Assets/Scripts/Units/Enemy.cs" relfile="Assets/Scripts/Units/Enemy.cs" line="33" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Units/Unit.cs">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f0205284-87cf-43f9-942c-518768e185f1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/CharacterSelectManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Utilities/FightText/FightTextComponent.cs" />
-      <File FileName="Assets/Scripts/Utilities/FightText/FightTextInfo.cs" />
-      <File FileName="Assets/Scripts/Utilities/FightText/FightTextManager.cs" Line="124" Column="85" />
-      <File FileName="Assets/Scripts/Units/Unit.cs" Line="77" Column="53" />
-      <File FileName="Assets/Scripts/Units/Player.cs" Line="67" Column="16" />
-      <File FileName="Assets/Scripts/Units/Element.cs" Line="5" Column="14" />
-      <File FileName="Assets/Scripts/Manager/UIManager.cs" Line="61" Column="72" />
-      <File FileName="Assets/Scripts/Game.cs" Line="24" Column="32" />
+      <File FileName="Assets/Scripts/Manager/CharacterSelectManager.cs" Line="18" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="flappyBird_2">
+          <Node name="flappyBird_2" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Editor" expanded="True" />
-              <Node name="Scenes" expanded="True" />
               <Node name="Scripts" expanded="True">
-                <Node name="Level" expanded="True" />
                 <Node name="Manager" expanded="True" />
                 <Node name="Units" expanded="True" />
-                <Node name="Utilities" expanded="True">
-                  <Node name="FightText" expanded="True" />
-                </Node>
+                <Node name="Utilities" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/norne/dev/flappyBird_2/Assets/Scripts/Units/Enemy.cs" relfile="Assets/Scripts/Units/Enemy.cs" line="57" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="73a9069e-1512-4d3b-8963-49d2714e82d1" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
