@@ -45,7 +45,7 @@ public class Player : Unit
             rigidbodyBird.AddForce(new Vector2(0, force), ForceMode2D.Force);
             flyTimer = 0;
         }
-        if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(0))
+        if (LifeManager.Instance.RemainLifes > 0)
         {
             if (!isFlying && Game.Instance.Status == GAME_STATUS.INGAME)
             {
@@ -53,6 +53,10 @@ public class Player : Unit
                 Fly();
             }
             this.Fire();
+        }
+        if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(0))
+        {
+            this.Sword();
         }
     }
 

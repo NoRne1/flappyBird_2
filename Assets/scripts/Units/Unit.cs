@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour {
 
     public float speed = 100f;
     public float fireRate = 10f;
+    public float swordRate = 10f;
 
     protected bool death = false;
 
@@ -51,6 +52,7 @@ public class Unit : MonoBehaviour {
     public int hematophagiaValue = 5;
 
     float fireTimer = 0;
+    float swordTimer = 0;
 
     public bool desoryOnDeath = false;
 
@@ -84,6 +86,7 @@ public class Unit : MonoBehaviour {
             return;
 
         fireTimer += Time.deltaTime;
+        swordTimer += Time.deltaTime;
 
         OnUpdate();
 
@@ -123,6 +126,15 @@ public class Unit : MonoBehaviour {
             Element ele = go.GetComponent<Element>();
             ele.direction = this.side == SIDE.PLAYER ? Vector3.right : Vector3.left;
             ele.source = this;
+            fireTimer = 0f;
+        }
+    }
+
+    public void Sword()
+    {
+        if (swordTimer > 1f / swordRate)
+        {
+            this.ani.SetTrigger("Sword");
             fireTimer = 0f;
         }
     }

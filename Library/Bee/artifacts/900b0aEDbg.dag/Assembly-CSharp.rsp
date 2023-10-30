@@ -403,6 +403,7 @@
 "Assets/Scripts/Utilities/GameUtil.cs"
 "Assets/Scripts/Utilities/MonoSingleton.cs"
 "Assets/Scripts/Utilities/Singleton.cs"
+"Assets/Unity.VisualScripting.Generated/VisualScripting.Core/AotStubs.cs"
 -langversion:9.0
 
 /deterministic

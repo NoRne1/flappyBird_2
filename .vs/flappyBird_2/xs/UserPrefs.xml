@@ -1,34 +1,34 @@
 ﻿<Properties StartupConfiguration="{AC54A54F-B8F1-1E95-EA6F-CD5C80D44F3D}|">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/norne/dev/flappyBird_2/Assets/Scripts/Units/Enemy.cs" relfile="Assets/Scripts/Units/Enemy.cs" line="33" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f0205284-87cf-43f9-942c-518768e185f1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/CharacterSelectManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Units/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Manager/CharacterSelectManager.cs" Line="18" Column="6" />
+      <File FileName="Assets/Scripts/Manager/CharacterSelectManager.cs" Line="29" Column="1" />
+      <File FileName="Assets/Scripts/Const.cs" />
+      <File FileName="Assets/Scripts/Units/Player.cs" Line="25" Column="36" />
+      <File FileName="Assets/Scripts/Units/Unit.cs" Line="133" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="flappyBird_2" expanded="True">
+          <Node name="flappyBird_2">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
+                <Node name="Level" expanded="True" />
                 <Node name="Manager" expanded="True" />
                 <Node name="Units" expanded="True" />
-                <Node name="Utilities" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="075681f5-591d-438e-b3af-93f5a5695402" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/norne/dev/flappyBird_2/Assets/Scripts/Units/Enemy.cs" relfile="Assets/Scripts/Units/Enemy.cs" line="33" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

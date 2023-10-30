@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FightTextCanvas
   - PlayerHpBar
+  - Sword
   layers:
   - Default
   - TransparentFX
