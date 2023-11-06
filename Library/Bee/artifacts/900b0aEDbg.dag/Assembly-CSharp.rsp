@@ -390,6 +390,7 @@
 "Assets/Scripts/Manager/UIManager.cs"
 "Assets/Scripts/Manager/UnitManager.cs"
 "Assets/Scripts/Units/Boss.cs"
+"Assets/Scripts/Units/CloseArm.cs"
 "Assets/Scripts/Units/Element.cs"
 "Assets/Scripts/Units/Enemy.cs"
 "Assets/Scripts/Units/Missile.cs"

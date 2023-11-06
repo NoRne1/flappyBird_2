@@ -24,16 +24,6 @@ public class Player : Unit
         invincibleTimer += Time.deltaTime;
         flyTimer += Time.deltaTime;
 
-        //Vector2 pos = this.transform.position;
-        //pos.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        //pos.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        //this.transform.position = pos;
-
-
-        //if (Input.GetButton("Fire1"))
-        //{
-        //    this.Fire();
-        //}
         if (LifeManager.Instance.RemainLifes > 0 && Input.GetMouseButtonDown(1) && flyTimer > 1f / flyRate)
         {
             if(!isFlying && Game.Instance.Status == GAME_STATUS.INGAME)

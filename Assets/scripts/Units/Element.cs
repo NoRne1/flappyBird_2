@@ -37,4 +37,9 @@ public class Element : MonoBehaviour {
             Destroy(this.gameObject, 1f);
         }
     }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
 }

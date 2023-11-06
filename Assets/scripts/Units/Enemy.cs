@@ -47,14 +47,14 @@ public class Enemy : Unit {
         if (this.death)
             return;
         Element bullet = col.gameObject.GetComponent<Element>();
-        if (bullet == null)
+        if (bullet != null)
         {
+            Debug.Log("Enemy OnTriggerEnter2D bullet: " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+            if (bullet.side == SIDE.PLAYER)
+            {
+                this.Damage(bullet);
+            }
             return;
-        }
-        Debug.Log("Enemy:OnTriggerEnter2D : " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        if (bullet.side == SIDE.PLAYER)
-        {
-            this.Damage(bullet);
         }
     }
 

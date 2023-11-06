@@ -61,6 +61,7 @@
     <Compile Include="Assets/Scripts/Units/PlayerDisplay.cs" />
     <Compile Include="Assets/Scripts/Manager/BulletManager.cs" />
     <Compile Include="Assets/Scripts/Units/Player.cs" />
+    <Compile Include="Assets/Scripts/Units/CloseArm.cs" />
     <Compile Include="Assets/Scripts/Manager/UIManager.cs" />
     <Compile Include="Assets/Scripts/Units/Unit.cs" />
     <Compile Include="Assets/Scripts/Units/Enemy.cs" />

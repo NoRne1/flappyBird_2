@@ -123,7 +123,6 @@ public class Boss : Enemy {
     {
         Debug.Log("Enemy:OnCollisionEnter2D : " + col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         // this.Die();
-
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -176,6 +176,12 @@ public class Unit : MonoBehaviour {
         bullet.source.InvokeHematophagia();
     }
 
+    public void Damage(CloseArm arm)
+    {
+        this.Damage(GameUtil.Instance.CalcDamage(arm.power, this.agile, arm.source.attack, this.armor));
+        arm.source.InvokeHematophagia();
+    }
+
     public void Damage(int damage)
     {
         this.hp -= damage;

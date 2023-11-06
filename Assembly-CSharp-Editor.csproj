@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Editor/LevelEditor.cs" />
+    <Compile Include="Assets\Scripts\Units\Sword.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
